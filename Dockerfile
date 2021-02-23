@@ -4,7 +4,9 @@ RUN apk update
 RUN apk add --no-cache udev chromium chromium-chromedriver xvfb
 
 
-RUN pip install --no-cache-dir robotframework==3.1.1 robotframework-selenium2library==3.0.0 selenium==3.141.0 pyyaml
+RUN pip install --no-cache-dir robotframework robotframework-seleniumlibrary selenium  pyyaml robotframework-extendedrequestslibrary robotframework-faker \
+    robotframework-jsonlibrary robotframework-jsonvalidator robotframework-pabot robotframework-randomlibrary \
+    robotframework-requests robotframework-jsonschemalibrary robotframework-databaselibrary RESTinstance robotframework-pabot
 
 # for fixing ci error disable gpu
 RUN sed -i "s/self._arguments\ =\ \[\]/self._arguments\ =\ \['--no-sandbox',\ '--disable-gpu'\]/" $(python -c "import site; print(site.getsitepackages()[0])")/selenium/webdriver/chrome/options.py;

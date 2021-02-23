@@ -1,4 +1,4 @@
-FROM python:3.8-alpine3.9
+FROM python:3.7-alpine3.9
 
 RUN apk update
 RUN apk add --no-cache udev chromium chromium-chromedriver xvfb
